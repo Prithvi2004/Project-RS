@@ -1,0 +1,82 @@
+.search-section {
+  margin-top: 100px;
+  padding: 0 50px;
+}
+
+.search-images {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.image-left,
+.image-right {
+  width: 20%;
+  text-align: center;
+}
+
+.image-left img,
+.image-right img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.image-caption {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.center-content {
+  width: 60%;
+}
+
+.brand-name {
+  font-family: "Merriweather", serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 22px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 15px;
+  width: 400px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #00bcd4;
+}
+
+.search-button {
+  padding: 15px 30px;
+  margin-left: -50px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #388e3c;
+}
