@@ -1,15 +1,23 @@
+/* General Header Styling */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
+  padding: 15px 30px;
   background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Header on scroll (optional) */
+.header.scrolled {
+  background-color: #00bcd4;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
@@ -18,27 +26,52 @@
   font-weight: 700;
   color: #00bcd4;
   flex: 1;
+  transition: color 0.3s ease;
 }
 
+/* Navigation Links */
 .navigation {
   display: flex;
   flex: 2;
   justify-content: center;
 }
 
-.navigation a {
-  margin: 0 15px;
-  text-decoration: none;
-  font-size: 16px;
-  color: #333;
+.navigation .nav-link {
   position: relative;
-  transition: color 0.3s ease;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.navigation a:hover {
+.navigation .nav-link:hover {
   color: #00bcd4;
+  transform: translateY(-2px); /* Lift on hover */
 }
 
+/* Add gradient underline effect on hover */
+.navigation .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, #00bcd4, #0097a7);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.navigation .nav-link:hover::after {
+  visibility: visible;
+  transform: scaleX(1); /* Underline grows on hover */
+}
+
+/* Auth Buttons */
 .auth-buttons {
   display: flex;
   justify-content: flex-end;
@@ -47,26 +80,30 @@
 
 .auth-buttons .login-btn,
 .auth-buttons .register-btn {
-  padding: 8px 15px; /* Reduced padding to fit within the navbar */
+  padding: 10px 20px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-left: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-left: 20px;
 }
 
+/* Login Button */
 .login-btn {
   background-color: transparent;
   border: 2px solid #00bcd4;
   color: #00bcd4;
+  margin-left: 20px;
 }
 
 .login-btn:hover {
   background-color: #00bcd4;
   color: #fff;
+  transform: translateY(-2px); /* Lift effect on hover */
 }
 
+/* Register Button */
 .register-btn {
   background-color: #00bcd4;
   color: #fff;
@@ -74,4 +111,23 @@
 
 .register-btn:hover {
   background-color: #0097a7;
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  .navigation .nav-link {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .auth-buttons .login-btn,
+  .auth-buttons .register-btn {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
 }

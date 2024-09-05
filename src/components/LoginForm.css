@@ -1,0 +1,321 @@
+/* Pop-up Notification */
+.popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50; /* Success green */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.5s ease forwards, fadeOut 0.5s ease 2.5s forwards;
+}
+
+/* Slide-down animation for showing the pop-up */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Fade-out animation for hiding the pop-up */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* General Layout */
+.login-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+/* Left Image Section */
+.login-image {
+  width: 40%;
+  margin-left: 100px;
+  height: 90vh;
+  background-image: url("D:\VS Code\RythuSetu\rythu-setu\src\assets\login.png"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Right Form Section */
+.login-form {
+  margin-right: 100px;
+  width: 50%;
+  padding: 60px 80px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: -10px 0px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.login-form h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #333;
+  align-self: center;
+}
+
+/* Input Group with Sufficient Padding and Margin */
+.input-group {
+  margin-bottom: 30px; /* Increased margin for more space */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+}
+
+#username,
+#password {
+  width: 150%;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 16px; /* Increased padding for better spacing */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #00bcd4;
+  background-color: white;
+  box-shadow: 0 0 6px rgba(0, 188, 212, 0.3); /* Enhanced focus shadow */
+}
+
+/* Password Input with Toggle */
+.password-group {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 70%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+}
+
+.forgot-password {
+  margin-bottom: 30px;
+  text-align: left;
+  width: 100%;
+}
+
+.forgot-password a {
+  color: #00bcd4;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Enhanced Login Button with Animations */
+.login-btn {
+  width: 150%;
+  padding: 16px; /* More padding for larger clickable area */
+  background-color: #00bcd4;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 188, 212, 0.3); /* Soft shadow */
+  transform: translateY(0); /* No lift on initial state */
+  box-shadow: 0px 4px 8px rgba(0, 188, 212, 0.3); /* Initial shadow */
+  margin-left: 100px;
+}
+
+/* Button Hover and Active States with Animations */
+.login-btn:hover {
+  background-color: #0097a7;
+  transform: translateY(-3px); /* Lift on hover */
+  box-shadow: 0px 8px 15px rgba(0, 188, 212, 0.4); /* Larger shadow on hover */
+}
+
+.login-btn:active {
+  background-color: #008a91;
+  transform: translateY(0); /* No lift on active */
+  box-shadow: 0px 4px 8px rgba(0, 188, 212, 0.2); /* Soft shadow on active */
+}
+
+/* Divider with OR */
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 30px 0;
+  position: relative;
+}
+
+.divider span {
+  background-color: white;
+  padding: 0 15px;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Social Login Buttons */
+.social-login {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: #ddd;
+  transform: translateY(-2px);
+}
+
+.new-user {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  width: 100%;
+}
+
+.new-user a {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.new-user a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .login-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .login-image {
+    width: 100%;
+    height: 300px;
+  }
+
+  .login-form {
+    width: 100%;
+    padding: 30px 40px;
+    box-shadow: none;
+  }
+
+  .tooltip {
+    bottom: 10%;
+    left: 10px;
+  }
+
+  .divider::before,
+  .divider::after {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-form {
+    padding: 20px;
+  }
+
+  .login-btn,
+  .social-btn {
+    padding: 12px;
+  }
+
+  input,
+  select {
+    padding: 12px;
+  }
+
+  .divider span {
+    font-size: 12px;
+  }
+
+  .social-btn {
+    width: 40px;
+    height: 40px;
+  }
+}

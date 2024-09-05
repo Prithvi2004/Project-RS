@@ -7,7 +7,7 @@ import weatherForecastingImage from "../assets/weather-forecasting.jpg";
 function FeatureSection() {
   return (
     <div className="feature-section">
-      <div className="feature-card">
+      <div className="feature-card parallax-card">
         <div className="feature-text">
           <h2>Crop Management</h2>
           <p>
@@ -22,7 +22,7 @@ function FeatureSection() {
         </div>
       </div>
 
-      <div className="feature-card reverse">
+      <div className="feature-card parallax-card reverse">
         <div className="feature-text">
           <h2>Financial Management</h2>
           <p>
@@ -37,7 +37,7 @@ function FeatureSection() {
         </div>
       </div>
 
-      <div className="feature-card">
+      <div className="feature-card parallax-card">
         <div className="feature-text">
           <h2>Weather Forecasting</h2>
           <p>

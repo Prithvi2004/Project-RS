@@ -1,11 +1,19 @@
+/* General Layout and Styling */
 .about-us-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px;
-  background-color: #f9f9f9;
+  padding: 60px;
+  background: linear-gradient(
+    135deg,
+    #e0f7fa,
+    #ffffff
+  ); /* Modern gradient background */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+  border-radius: 15px;
+  margin-bottom: 60px;
   overflow: hidden;
-  margin-bottom: 50px;
+  position: relative;
 }
 
 .about-us-content {
@@ -15,29 +23,30 @@
 
 .about-us-content h1 {
   font-size: 48px;
-  font-weight: bold;
+  font-weight: 700;
   color: #333;
   margin-bottom: 20px;
-  animation: fadeIn 1s ease-in-out forwards;
+  animation: fadeInUp 1.2s ease-in-out forwards;
+  position: relative;
 }
 
 .about-us-content p {
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #555;
   margin-bottom: 20px;
-  animation: fadeIn 1s ease-in-out forwards;
   opacity: 0;
+  animation: fadeInUp 1.2s ease-in-out forwards;
 }
 
 .about-us-content h2 {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 600;
   color: #333;
   margin-top: 40px;
   margin-bottom: 10px;
-  animation: fadeIn 1s ease-in-out forwards;
   opacity: 0;
+  animation: fadeInUp 1.2s ease-in-out forwards;
 }
 
 .about-us-image {
@@ -48,36 +57,43 @@
 
 .about-us-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 450px;
   border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow for image */
+  transform: rotate(3deg); /* Slight rotation for a dynamic look */
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.about-us-image img:hover {
+  transform: rotate(0deg) scale(1.05); /* Hover effect for interaction */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
 }
 
 /* Animations */
-@keyframes fadeIn {
-  from {
+@keyframes fadeInUp {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.98); /* Slight scale-down for a smoother appearance */
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1); /* Bringing it to full opacity and scale */
   }
 }
 
 @keyframes slideInRight {
-  from {
+  0% {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(50px) rotate(5deg); /* Starts rotated for a smooth slide-in */
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) rotate(0); /* Ends perfectly aligned */
   }
 }
 
 .fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
+  animation: fadeInUp 1.2s ease-in-out forwards;
 }
 
 .delay-1 {
@@ -98,4 +114,33 @@
 
 .delay-5 {
   animation-delay: 1s;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .about-us-section {
+    flex-direction: column;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .about-us-content {
+    padding-right: 0;
+  }
+
+  .about-us-image {
+    margin-top: 30px;
+  }
+
+  .about-us-content h1 {
+    font-size: 36px;
+  }
+
+  .about-us-content h2 {
+    font-size: 28px;
+  }
+
+  .about-us-content p {
+    font-size: 16px;
+  }
 }

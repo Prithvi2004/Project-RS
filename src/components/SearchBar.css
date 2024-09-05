@@ -1,6 +1,12 @@
+/* General Styling */
 .search-section {
   margin-top: 100px;
   padding: 0 50px;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
 }
 
 .search-images {
@@ -8,12 +14,21 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 50px;
+  position: relative;
+  z-index: 2;
 }
 
 .image-left,
 .image-right {
   width: 20%;
   text-align: center;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.image-left:hover,
+.image-right:hover {
+  transform: scale(1.1);
 }
 
 .image-left img,
@@ -30,6 +45,7 @@
 
 .center-content {
   width: 60%;
+  text-align: center;
 }
 
 .brand-name {
@@ -38,12 +54,16 @@
   font-weight: 700;
   color: #333;
   margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: fadeIn 2s ease-out;
 }
 
 .tagline {
   font-size: 22px;
   color: #777;
   margin-bottom: 30px;
+  animation: fadeIn 2.5s ease-out;
 }
 
 .search-bar {
@@ -58,12 +78,13 @@
   border-radius: 50px;
   border: 1px solid #ccc;
   font-size: 16px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search-bar input:focus {
   outline: none;
   border-color: #00bcd4;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
 }
 
 .search-button {
@@ -74,9 +95,44 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .search-button:hover {
   background-color: #388e3c;
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background Effect */
+.search-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 188, 212, 0.3), transparent);
+  z-index: 1;
+}
+
+.search-section::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.3), transparent);
+  z-index: 1;
 }

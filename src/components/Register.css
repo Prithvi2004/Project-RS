@@ -1,0 +1,297 @@
+/* General Layout */
+.register-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+/* Left Form Section */
+.register-form {
+  width: 55%;
+  padding: 60px 80px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 10px 0px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.register-form h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #333;
+  align-self: center;
+}
+
+/* Input Group */
+.input-group {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+}
+
+input,
+select {
+  width: 150%;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #00bcd4;
+  background-color: white;
+  box-shadow: 0 0 6px rgba(0, 188, 212, 0.3);
+}
+
+/* Password Input with Toggle */
+.password-group {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: -150px;
+  top: 70%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+}
+
+.check {
+  width: 20px;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.terms input {
+  margin-right: 10px;
+}
+
+.terms p {
+  font-size: 12px;
+  color: #555;
+}
+
+.terms a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+/* Sign Up Button */
+.register-btn {
+  width: 120%;
+  margin-left: 70px;
+  padding: 16px;
+  background-color: #00bcd4;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 188, 212, 0.3);
+}
+
+.register-btn:hover {
+  background-color: #0097a7;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 188, 212, 0.4);
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 30px 0;
+  position: relative;
+}
+
+.divider span {
+  background-color: white;
+  padding: 0 15px;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Social Login Buttons */
+.social-login {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: #ddd;
+  transform: translateY(-2px);
+}
+
+.have-account {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  width: 100%;
+}
+
+.have-account a {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.have-account a:hover {
+  text-decoration: underline;
+}
+
+/* Right Image Section */
+.register-image {
+  width: 45%;
+  height: 100vh;
+  background-image: url("D:\VS Code\RythuSetu\rythu-setu\src\assets\register.png"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: 20%;
+  right: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: #333;
+  max-width: 280px;
+  line-height: 1.6;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid white;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+/* Pop-up Notification */
+.popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50; /* Success green */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.5s ease forwards, fadeOut 0.5s ease 2.5s forwards;
+}
+
+/* Slide-down animation for showing the pop-up */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Fade-out animation for hiding the pop-up */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.link-button {
+  background: none;
+  border: none;
+  color: #00bcd4;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  text-decoration: none;
+}

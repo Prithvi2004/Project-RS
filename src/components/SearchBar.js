@@ -10,7 +10,7 @@ function SearchBar() {
       <div className="search-images">
         <div className="image-left">
           <img src={leftImage} alt="Farmers" />
-          <div className="image-caption"></div>
+          <div className="image-caption">Empowering Farmers</div>
         </div>
         <div className="center-content">
           <h1 className="brand-name">RythuSetu</h1>
@@ -24,7 +24,7 @@ function SearchBar() {
         </div>
         <div className="image-right">
           <img src={rightImage} alt="Users" />
-          <div className="image-caption"></div>
+          <div className="image-caption">Connecting Communities</div>
         </div>
       </div>
     </div>

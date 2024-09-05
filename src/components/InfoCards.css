@@ -15,6 +15,26 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.info-card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(0, 188, 212, 0.3), transparent);
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
+}
+
+.info-card:hover::before {
+  top: -80px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(0, 188, 212, 0.5), transparent);
 }
 
 .info-card:hover {
@@ -27,10 +47,21 @@
   margin-bottom: 15px;
   display: block;
   color: #00bcd4;
+  animation: iconBounce 1s infinite;
 }
 
 .info-card p {
   font-size: 16px;
   color: #555;
   line-height: 1.6;
+}
+
+@keyframes iconBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }

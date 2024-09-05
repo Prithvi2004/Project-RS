@@ -1,106 +1,145 @@
+/* General Layout and Styling */
 .motto-section {
-  background-color: #f0f8e8; /* Light green background */
+  background: linear-gradient(
+    135deg,
+    #e6f8e0,
+    #f9f9f9
+  ); /* Subtle gradient background */
   padding: 50px;
   position: relative;
   text-align: center;
   overflow: hidden;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Softer shadow for a smaller section */
+  isolation: isolate;
 }
 
 .motto-container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px; /* Smaller max-width */
 }
 
 .motto-title {
-  font-size: 36px;
-  color: #4682b4; /* Steel blue color */
-  margin-bottom: 20px;
+  font-size: 36px; /* Reduced font size */
+  color: #2a6496;
+  margin-bottom: 20px; /* Reduced margin */
   font-weight: bold;
+  letter-spacing: 1px;
   opacity: 0;
-  animation: slideDown 1.5s ease forwards;
-  animation-delay: 0.5s;
+  animation: slideInTop 1.5s ease forwards;
+  animation-delay: 0.3s;
+  position: relative;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #4caf50, #00bcd4);
+  -webkit-background-clip: text;
+  color: transparent; /* Gradient title */
 }
 
 .motto-text {
-  font-size: 24px;
-  color: #a52a2a; /* Brick red color */
+  font-size: 20px; /* Smaller text size */
+  color: #333;
   font-weight: 500;
   display: inline-block;
   position: relative;
   font-family: "Merriweather", serif;
   opacity: 0;
-  animation: slideUp 1.5s ease forwards;
-  animation-delay: 1s;
+  animation: slideInBottom 1.5s ease forwards;
+  animation-delay: 0.6s;
+  padding: 20px; /* Reduced padding */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.85
+  ); /* Slightly transparent white background */
+  border-radius: 10px; /* Slightly smaller radius */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  transform: scale(0.95); /* Initial subtle scaling */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.motto-text:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.quote-left,
+.quote-right {
+  font-size: 32px; /* Smaller quote size */
+  color: #2a6496;
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
 }
 
 .quote-left {
-  font-size: 40px;
-  position: absolute;
-  left: -30px;
-  top: -10px;
-  opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards;
-  animation-delay: 1.2s;
+  margin-right: 10px;
+  animation-delay: 0.8s;
 }
 
 .quote-right {
-  font-size: 40px;
-  position: absolute;
-  right: -30px;
-  bottom: -10px;
-  opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards;
-  animation-delay: 1.4s;
+  margin-left: 10px;
+  animation-delay: 1s;
 }
 
-/* Background Design */
+/* Background Elements with Parallax Effect */
 .motto-section::before,
 .motto-section::after {
   content: "";
   position: absolute;
-  width: 150px;
-  height: 150px;
-  background-color: #32cd32; /* Lime green color */
+  width: 200px; /* Smaller circles */
+  height: 200px;
+  background-color: rgba(76, 175, 80, 0.2);
   border-radius: 50%;
   z-index: 0;
-  opacity: 0.7;
-  transform: scale(0.5);
-  animation: scaleUp 4s ease-in-out infinite alternate;
+  animation: parallaxMove 10s ease-in-out infinite alternate;
 }
 
 .motto-section::before {
-  top: 0;
-  left: -50px;
+  top: -60px;
+  left: -80px;
+  animation-delay: 0.5s;
 }
 
 .motto-section::after {
-  bottom: 0;
-  right: -50px;
+  bottom: -60px;
+  right: -80px;
+  animation-delay: 1s;
 }
 
-/* Dot pattern */
+/* Dot pattern for modern look */
 .motto-section .dot-pattern {
   position: absolute;
-  width: 120px;
+  width: 120px; /* Smaller dots */
   height: 120px;
-  background-image: radial-gradient(#333 1px, transparent 1px);
+  background-image: radial-gradient(#555 1px, transparent 1px);
   background-size: 10px 10px;
   opacity: 0;
-  animation: fadeInDots 3s ease-in-out forwards;
+  animation: fadeInDots 2.5s ease-in-out forwards;
 }
 
 .motto-section .dot-pattern.dot-left {
-  top: 20px;
-  left: 100px;
-  animation-delay: 1.5s;
+  top: 60px;
+  left: 140px;
+  animation-delay: 2s;
 }
 
 .motto-section .dot-pattern.dot-right {
-  bottom: 20px;
-  right: 100px;
-  animation-delay: 2s;
+  bottom: 60px;
+  right: 140px;
+  animation-delay: 2.5s;
 }
 
 /* Animations */
@@ -113,7 +152,7 @@
   }
 }
 
-@keyframes slideDown {
+@keyframes slideInTop {
   0% {
     opacity: 0;
     transform: translateY(-30px);
@@ -124,25 +163,23 @@
   }
 }
 
-@keyframes slideUp {
+@keyframes slideInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(30px) scale(0.95);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-@keyframes scaleUp {
+@keyframes parallaxMove {
   0% {
-    transform: scale(0.5);
-    opacity: 0.7;
+    transform: translateX(0) translateY(0);
   }
   100% {
-    transform: scale(1);
-    opacity: 1;
+    transform: translateX(20px) translateY(20px);
   }
 }
 
@@ -154,5 +191,30 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .motto-section {
+    padding: 40px;
+  }
+
+  .motto-title {
+    font-size: 28px;
+  }
+
+  .motto-text {
+    font-size: 16px;
+  }
+
+  .quote-left,
+  .quote-right {
+    font-size: 24px;
+  }
+
+  .dot-pattern {
+    width: 80px;
+    height: 80px;
   }
 }
