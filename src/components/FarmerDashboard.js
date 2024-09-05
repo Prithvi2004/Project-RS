@@ -7,54 +7,61 @@ function FarmerDashboard() {
   const [cropData, setCropData] = useState({
     type: "",
     quantity: "",
+    cost: "",
     farmerName: "",
     farmerAddress: "",
   });
 
   useEffect(() => {
-    // Fetch existing crops from localStorage
     const storedCrops = JSON.parse(localStorage.getItem("crops")) || [];
     setCrops(storedCrops);
   }, []);
 
-  // Function to handle input changes
+  // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setCropData({ ...cropData, [name]: value });
   };
 
-  // Function to add crop to the list and store in localStorage
+  // Add crop to the list and store in localStorage
   const handleAddCropSubmit = () => {
     if (
       cropData.type &&
       cropData.quantity &&
+      cropData.cost &&
       cropData.farmerName &&
       cropData.farmerAddress
     ) {
-      const updatedCrops = [...crops, cropData]; // Add new crop to the crops array
-      setCrops(updatedCrops); // Update state
+      const updatedCrops = [...crops, cropData];
+      setCrops(updatedCrops);
       setShowModal(false); // Close modal
       setCropData({
         type: "",
         quantity: "",
+        cost: "",
         farmerName: "",
         farmerAddress: "",
-      }); // Reset form
+      });
 
-      // Store the crops in localStorage
       localStorage.setItem("crops", JSON.stringify(updatedCrops));
     }
+  };
+
+  const handleDeleteCrop = (index) => {
+    const updatedCrops = crops.filter((_, i) => i !== index);
+    setCrops(updatedCrops);
+
+    localStorage.setItem("crops", JSON.stringify(updatedCrops));
   };
 
   return (
     <div className="farmer-dashboard">
       <h1>Farmer Dashboard</h1>
-      <p>Welcome to your Crop Management Dashboard. Add your crops below.</p>
+      <p>Manage your crops and set prices.</p>
       <button className="add-crop-btn" onClick={() => setShowModal(true)}>
         Add Crop
       </button>
 
-      {/* Modal Popup for Adding Crop */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">
@@ -77,6 +84,16 @@ function FarmerDashboard() {
                 value={cropData.quantity}
                 onChange={handleInputChange}
                 placeholder="Enter quantity"
+              />
+            </div>
+            <div className="input-group">
+              <label>Cost (per kg)</label>
+              <input
+                type="number"
+                name="cost"
+                value={cropData.cost}
+                onChange={handleInputChange}
+                placeholder="Enter cost per kg"
               />
             </div>
             <div className="input-group">
@@ -114,7 +131,6 @@ function FarmerDashboard() {
         </div>
       )}
 
-      {/* Display List of Crops */}
       <div className="crops-grid">
         {crops.length === 0 ? (
           <p>No crops added yet.</p>
@@ -123,8 +139,15 @@ function FarmerDashboard() {
             <div className="crop-box" key={index}>
               <h3>{crop.type}</h3>
               <p>Quantity: {crop.quantity} kg</p>
+              <p>Cost: ₹{crop.cost} per kg</p>
               <p>Farmer: {crop.farmerName}</p>
               <p>Address: {crop.farmerAddress}</p>
+              <button
+                className="delete-btn"
+                onClick={() => handleDeleteCrop(index)}
+              >
+                Delete
+              </button>
             </div>
           ))
         )}
