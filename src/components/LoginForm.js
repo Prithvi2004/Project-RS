@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import { FiEyeOff, FiEye } from "react-icons/fi"; // For password toggle visibility
+import loginImage from "../assets/login.png";
 
 function LoginForm() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -46,7 +47,10 @@ function LoginForm() {
       {showPopup && <div className="popup">Login Successful!</div>}
 
       {/* Left Image Section */}
-      <div className="login-image"></div>
+      <div
+        className="login-image"
+        style={{ backgroundImage: `url(${loginImage})` }}
+      ></div>
 
       {/* Right Form Section */}
       <div className="login-form">

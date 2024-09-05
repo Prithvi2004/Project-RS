@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 import { FiEyeOff, FiEye } from "react-icons/fi"; // For password toggle visibility
 import "./Register.css";
+import registerImage from "../assets/register.png"; // Correct relative path
 
 function Register() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -145,7 +146,10 @@ function Register() {
       </div>
 
       {/* Right Image Section */}
-      <div className="register-image"></div>
+      <div
+        className="register-image"
+        style={{ backgroundImage: `url(${registerImage})` }}
+      ></div>
     </div>
   );
 }
