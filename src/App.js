@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import InfoCards from "./components/InfoCards";
@@ -13,6 +19,8 @@ import TeamSection from "./components/TeamSection";
 import Footer from "./components/Footer";
 import LoginForm from "./components/LoginForm"; // The login form component
 import Register from "./components/Register"; // The register form component
+import FarmerDashboard from "./components/FarmerDashboard"; // Farmer interface
+import ConsumerDashboard from "./components/ConsumerDashboard"; // Consumer interface
 import "./App.css";
 
 function App() {
@@ -88,10 +96,14 @@ function App() {
           />
 
           {/* Login Route */}
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/login" element={<LoginWithRedirect />} />
 
           {/* Register Route */}
           <Route path="/register" element={<Register />} />
+
+          {/* Farmer and Consumer Dashboards */}
+          <Route path="/farmer-dashboard" element={<FarmerDashboard />} />
+          <Route path="/consumer-dashboard" element={<ConsumerDashboard />} />
         </Routes>
       </div>
     </Router>
@@ -99,3 +111,18 @@ function App() {
 }
 
 export default App;
+
+// Component to handle login and redirect based on role
+function LoginWithRedirect() {
+  const navigate = useNavigate();
+
+  const handleLogin = (role) => {
+    if (role === "farmer") {
+      navigate("/farmer-dashboard"); // Redirect to Farmer Dashboard
+    } else if (role === "consumer") {
+      navigate("/consumer-dashboard"); // Redirect to Consumer Dashboard
+    }
+  };
+
+  return <LoginForm onLogin={handleLogin} />;
+}
