@@ -5,7 +5,11 @@ import "./Header.css";
 function Header() {
   return (
     <header className="header">
-      <div className="logo">Logo</div>
+      <div className="logo">
+        <Link to="/" className="logo-link">
+          Logo
+        </Link>
+      </div>
 
       {/* Navigation Menu */}
       <nav className="navigation">
@@ -18,7 +22,7 @@ function Header() {
         <Link to="/features" className="nav-link">
           Features
         </Link>
-        <Link to="BlogSection.js" className="nav-link">
+        <Link to="/blogs" className="nav-link">
           Blogs
         </Link>
         <Link to="/contact" className="nav-link">

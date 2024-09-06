@@ -1,3 +1,36 @@
+/* Intimation Heading Styling */
+.intimation-heading {
+  background-color: #eef7f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.intimation-heading h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.intimation-heading p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* General Styling */
 body {
   font-family: "Poppins", sans-serif;

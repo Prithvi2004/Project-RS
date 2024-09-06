@@ -8,7 +8,8 @@ function MottoSection() {
         <h2 className="motto-title">Our Motto</h2>
         <p className="motto-text">
           <span className="quote-left">“</span>
-          Empowering Farmers, Connecting Communities, Delivering Freshness.
+          From Farm to Plate, We Connect and Create, Freshness Delivered,
+          Communities Great.
           <span className="quote-right">”</span>
         </p>
       </div>

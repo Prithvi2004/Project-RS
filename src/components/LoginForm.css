@@ -96,9 +96,9 @@
   color: #555;
 }
 
-#username,
+#name,
 #password {
-  width: 150%;
+  width: 200%;
 }
 
 input,
@@ -128,7 +128,7 @@ select:focus {
 
 .password-toggle {
   position: absolute;
-  right: 15px;
+  left: 90%;
   top: 70%;
   transform: translateY(-50%);
   cursor: pointer;

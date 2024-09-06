@@ -3,9 +3,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 15px 40px;
   background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   position: fixed;
   width: 100%;
   top: 0;
@@ -14,19 +14,24 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Header on scroll (optional) */
+/* Header on scroll */
 .header.scrolled {
   background-color: #00bcd4;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.logo {
+.logo .logo-link {
   font-family: "Merriweather", serif;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
   color: #00bcd4;
-  flex: 1;
+  text-decoration: none;
   transition: color 0.3s ease;
+  margin-right: 100px;
+}
+
+.logo .logo-link:hover {
+  color: #0097a7;
 }
 
 /* Navigation Links */
@@ -42,14 +47,14 @@
   text-decoration: none;
   font-size: 18px;
   color: #333;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.navigation .nav-link:hover {
-  color: #00bcd4;
-  transform: translateY(-2px); /* Lift on hover */
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f1f1f1, #e8e8e8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease;
 }
 
 /* Add gradient underline effect on hover */
@@ -63,12 +68,24 @@
   background: linear-gradient(90deg, #00bcd4, #0097a7);
   visibility: hidden;
   transform: scaleX(0);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .navigation .nav-link:hover::after {
   visibility: visible;
   transform: scaleX(1); /* Underline grows on hover */
+}
+
+/* Hover effects */
+.navigation .nav-link:hover {
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    #00bcd4,
+    #0097a7
+  ); /* Background change on hover */
+  box-shadow: 0 6px 15px rgba(0, 188, 212, 0.2); /* Lift effect */
+  transform: translateY(-3px); /* Lift on hover */
 }
 
 /* Auth Buttons */
@@ -80,13 +97,16 @@
 
 .auth-buttons .login-btn,
 .auth-buttons .register-btn {
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
   margin-left: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Login Button */
@@ -94,13 +114,12 @@
   background-color: transparent;
   border: 2px solid #00bcd4;
   color: #00bcd4;
-  margin-left: 20px;
 }
 
 .login-btn:hover {
   background-color: #00bcd4;
   color: #fff;
-  transform: translateY(-2px); /* Lift effect on hover */
+  transform: translateY(-4px); /* Lift effect on hover */
 }
 
 /* Register Button */
@@ -111,7 +130,7 @@
 
 .register-btn:hover {
   background-color: #0097a7;
-  transform: translateY(-2px); /* Lift effect on hover */
+  transform: translateY(-4px); /* Lift effect on hover */
 }
 
 /* Responsive Design */
@@ -122,12 +141,12 @@
 
   .navigation .nav-link {
     margin: 0 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .auth-buttons .login-btn,
   .auth-buttons .register-btn {
-    padding: 8px 15px;
-    font-size: 12px;
+    padding: 8px 18px;
+    font-size: 14px;
   }
 }

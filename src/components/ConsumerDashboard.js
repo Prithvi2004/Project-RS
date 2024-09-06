@@ -66,6 +66,16 @@ function ConsumerDashboard() {
 
   return (
     <div className="consumer-dashboard">
+      {/* Intimation Heading */}
+      <div className="intimation-heading">
+        <h2>Welcome to the Farmers' Marketplace</h2>
+        <p>
+          Browse the list of crops available from local farmers and add them to
+          your cart. Review your cart and proceed to pay for your selected
+          items.
+        </p>
+      </div>
+
       <h1>Available Crops</h1>
       <button
         className={`cart-btn ${cartBounce ? "bounce" : ""}`}
